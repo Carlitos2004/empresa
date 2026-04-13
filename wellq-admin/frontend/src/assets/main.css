@@ -1,0 +1,82 @@
+/* main.css — Estilos globales de WellQ Admin Console */
+
+/* Importar las capas de Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Estilos base globales ───────────────────────────────────────────────────── */
+@layer base {
+  /* Fuente base y suavizado de texto para toda la app */
+  body {
+    @apply font-sans antialiased bg-slate-light text-slate-dark;
+  }
+
+  /* Tipografía base para headings */
+  h1, h2, h3, h4 {
+    @apply font-semibold text-slate-dark;
+  }
+}
+
+/* ── Componentes reutilizables con @apply ─────────────────────────────────────── */
+@layer components {
+  /* Botón primario — azul índigo */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-medium
+           text-white bg-indigo rounded-lg hover:bg-indigo-dark
+           transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Botón secundario — transparente con borde */
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-medium
+           text-slate border border-slate/30 rounded-lg hover:bg-slate-light
+           transition-colors duration-150;
+  }
+
+  /* Botón de peligro — rojo */
+  .btn-danger {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-sm font-medium
+           text-white bg-red rounded-lg hover:bg-red/90
+           transition-colors duration-150;
+  }
+
+  /* Tarjeta base — usada en KPI cards, tablas, panels */
+  .card {
+    @apply bg-white rounded-xl border border-slate/20 shadow-card p-5;
+  }
+
+  /* Input de formulario base */
+  .input-base {
+    @apply w-full px-3 py-2 text-sm border border-slate/30 rounded-lg
+           bg-white text-slate-dark placeholder-slate-medium
+           focus:outline-none focus:ring-2 focus:ring-indigo/30 focus:border-indigo
+           transition-colors duration-150;
+  }
+
+  /* Badge de estado — usado en HealthBadge y StatusBadge */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* ── Utilidades personalizadas ───────────────────────────────────────────────── */
+@layer utilities {
+  /* Barra de scroll personalizada y delgada */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #94A3B8 transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #94A3B8;
+    border-radius: 3px;
+  }
+
+  /* Transición suave para el drawer lateral */
+  .drawer-transition {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
